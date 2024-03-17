@@ -2,29 +2,32 @@
 {
     internal class DetermineWinner
     {
-        public static string playersWeaponID;
-        public static string AIWeapon;
-        public static void Game()
+        public static string name;
+        public static int age;
+        public static int games;
+
+        public static int Game()
         {
             string[] weapons = { "stone", "scissors", "paper" };
             Random randomN = new Random();
-            int games = 0;
-            int wins = 0;
-            for (int i = 0; i <= 3; i++)
+            int winsR = 0;
+            
+            
+            for (int i = 1; i <= 3; i++)
             {
-                games++;
+
                 int AIWeaponID = randomN.Next(0, weapons.Length);
                 string AIWeapon = weapons[AIWeaponID];
 
-                Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
+                Console.WriteLine($"Chose your weapon by number where stone - 0,scissors - 1, paper - 2");
                 int playersWeaponID = int.Parse(Console.ReadLine());
-                int playersWeapon = playersWeaponID - 1;
-                if (playersWeapon <= 0 || playersWeapon >= 2)
+                int playersWeapon = playersWeaponID;
+                if (playersWeapon < 0 || playersWeapon > 2)
                 {
                     Console.WriteLine("Wrong number");
-                    Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
+                    Console.WriteLine($"Chose your weapon by number where stone - 0,scissors - 1, paper - 2");
                     playersWeaponID = int.Parse(Console.ReadLine());
-                    playersWeapon = playersWeaponID - 1;
+                    playersWeapon = playersWeaponID;
                 }
 
                 if (playersWeapon == AIWeaponID)
@@ -32,14 +35,14 @@
 
                     Console.WriteLine(AIWeapon);
                     Console.WriteLine("==");
-                    Console.WriteLine(i);
+                    Console.WriteLine("Played rounds:" + i);
                 }
                 else if ((playersWeapon == 1 && AIWeaponID == 2) || (playersWeapon == 2 && AIWeaponID == 3) || (playersWeapon == 3 && AIWeaponID == 1))
                 {
-                    wins++;
+                    winsR++;
                     Console.WriteLine(AIWeapon);
                     Console.WriteLine("YOU WIN!");
-                    Console.WriteLine(i);
+                    Console.WriteLine("Played rounds:" + i);
 
                 }
                 else
@@ -47,14 +50,21 @@
 
                     Console.WriteLine(AIWeapon);
                     Console.WriteLine("Y0U LOSE!");
-                    Console.WriteLine(i);
+                    Console.WriteLine("Played rounds:" + i);
                 }
             }
-            if (wins == 2 || wins == 3)
+            if (winsR > 0)
             {
+                
                 Console.WriteLine("YOU WIN the game!");
+                return win++;
             }
-            Console.WriteLine("YOU lose the game!");
+            else
+            {
+                Console.WriteLine("YOU lose the game!");
+                return 0;
+            }
+            
         }
     }
 }
