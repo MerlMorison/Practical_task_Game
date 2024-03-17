@@ -40,6 +40,7 @@
                 Console.ResetColor();
                 Player.PlayersData(name, age, 0, 0);
 
+
                 MakeAChoise.ChoiseStart();
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
