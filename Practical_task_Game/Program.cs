@@ -2,8 +2,6 @@
 {
     internal class Program
     {
-
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, please enter your data:");
@@ -11,6 +9,7 @@
             int games = 0;
             int wins = 0;
             Random randomN = new Random();
+            int attempts = 3;
 
             Console.Write("Write your name: ");
             string name = Console.ReadLine();
@@ -63,11 +62,19 @@
                 playersWeapon = (Weapon)int.Parse(Console.ReadLine());
                 playersWeaponID = (int)playersWeapon;
             }
-                        
+            else
+            {
+                while (attempts > 0)
+                {
+                    int AIWeapon = randomN.Next(1, 4);
+                    DetermineWinner.Winner(playersWeaponID, AIWeapon);
+                    Console.WriteLine(attempts);
+                }
+                games++;
+            }
+            PrintPlayersData.PlayersData(name, age, games, wins);
             Choise.PlayersChoise();
-
-
-
         }
     }
 }
+
