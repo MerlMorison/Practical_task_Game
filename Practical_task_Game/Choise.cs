@@ -1,0 +1,6 @@
+﻿enum Choise
+{
+    No,
+    Yes
+}
+
