@@ -26,7 +26,14 @@
                 {
                     games++;
                     win += GameBody.Game();
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"\nLet's take a look at your score for this session:");
+                    Console.ResetColor();
+
                     Player.PlayersData(games, win);
+                    Console.ResetColor();
+
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nDo you want to play again? (Yes|No)");
@@ -41,7 +48,6 @@
                     }
                 }
             }
-            
 
         }
     }
