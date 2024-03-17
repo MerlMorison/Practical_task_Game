@@ -36,7 +36,7 @@
 
 
 
-            Console.WriteLine("Do you want to start? (yes|no)");
+            Console.WriteLine("\nDo you want to start? (yes|no)");
             string choise = Console.ReadLine();
             choise = choise.ToLower();
             while (choise != "yes" && choise != "no")
@@ -48,10 +48,10 @@
             while (choise == "yes" && choise != "no")
             {
                 games++;
-                DetermineWinner.Game();
+                win += DetermineWinner.Game();
+                Player.PlayersData(name, age, games, win);
 
-
-                Console.WriteLine("Do you want to play again? (yes|no)");
+                Console.WriteLine("\nDo you want to play again? (yes|no)");
                 choise = Console.ReadLine();
                 choise = choise.ToLower();
                 while (choise != "yes" && choise != "no")

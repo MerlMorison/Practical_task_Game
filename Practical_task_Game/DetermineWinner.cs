@@ -11,15 +11,15 @@
             string[] weapons = { "stone", "scissors", "paper" };
             Random randomN = new Random();
             int winsR = 0;
-            
-            
+            int w = 0;
+
             for (int i = 1; i <= 3; i++)
             {
 
                 int AIWeaponID = randomN.Next(0, weapons.Length);
                 string AIWeapon = weapons[AIWeaponID];
 
-                Console.WriteLine($"Chose your weapon by number where stone - 0,scissors - 1, paper - 2");
+                Console.WriteLine($"\nChose your weapon by number where stone - 0,scissors - 1, paper - 2");
                 int playersWeaponID = int.Parse(Console.ReadLine());
                 int playersWeapon = playersWeaponID;
                 if (playersWeapon < 0 || playersWeapon > 2)
@@ -53,18 +53,18 @@
                     Console.WriteLine("Played rounds:" + i);
                 }
             }
-            if (winsR > 0)
+            if (winsR > 1)
             {
-                
-                Console.WriteLine("YOU WIN the game!");
-                return win++;
+
+                Console.WriteLine("\nYOU WIN the game!");
+                return 1;
             }
             else
             {
-                Console.WriteLine("YOU lose the game!");
+                Console.WriteLine("\nYOU lose the game!");
                 return 0;
             }
-            
+
         }
     }
 }
