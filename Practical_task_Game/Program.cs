@@ -1,12 +1,8 @@
-﻿
-namespace Practical_task_Game
+﻿namespace Practical_task_Game
 {
     internal class Program
     {
-        public static void PlayersData(string name, int age, int games, int wins)
-        {
-            Console.WriteLine($"Name: {name} \nAge: {age} \nPlayed rounds: {games} \nWins: {wins}");
-        }
+
 
         static void Main(string[] args)
         {
@@ -14,6 +10,7 @@ namespace Practical_task_Game
 
             int games = 0;
             int wins = 0;
+            Random randomN = new Random();
 
             Console.Write("Write your name: ");
             string name = Console.ReadLine();
@@ -40,8 +37,37 @@ namespace Practical_task_Game
                 return;
             }
 
-            PlayersData(name, age, games, wins);
+            PrintPlayersData.PlayersData(name, age, games, wins);
             Console.WriteLine("Do you want to start? (yes|no)");
+            string choise = Console.ReadLine();
+            choise = choise.ToLower();
+            while (choise != "yes" && choise != "no")
+            {
+                Console.WriteLine("Please write yes or no");
+                choise = Console.ReadLine();
+                choise = choise.ToLower();
+            }
+            if (choise == "no")
+            {
+                Console.WriteLine($"Good bye {name}");
+            }
+
+
+            Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
+            Weapon playersWeapon = (Weapon)int.Parse(Console.ReadLine());
+            int playersWeaponID = (int)playersWeapon;
+            if (playersWeaponID < 1 || playersWeaponID > 3)
+            {
+                Console.WriteLine("Wrong number");
+                Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
+                playersWeapon = (Weapon)int.Parse(Console.ReadLine());
+                playersWeaponID = (int)playersWeapon;
+            }
+                        
+            Choise.PlayersChoise();
+
+
+
         }
     }
 }
