@@ -2,14 +2,13 @@
 {
     internal class Program
     {
+        public static int wins;
+        public static int games;
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, please enter your data:");
 
-            int games = 0;
-            int wins = 0;
-            Random randomN = new Random();
-            int attempts = 3;
+            
 
             Console.Write("Write your name: ");
             string name = Console.ReadLine();
@@ -46,12 +45,25 @@
                 choise = Console.ReadLine();
                 choise = choise.ToLower();
             }
-            if (choise == "no")
+            while (choise == "yes" && choise != "no")
             {
-                Console.WriteLine($"Good bye {name}");
+
+                DetermineWinner.Game();
+
+                PrintPlayersData.PlayersData(name, age, games, wins);
+                Console.WriteLine("Do you want to play again? (yes|no)");
+                choise = Console.ReadLine();
+                choise = choise.ToLower();
+                while (choise != "yes" && choise != "no")
+                {
+                    Console.WriteLine("Please write yes or no");
+                    choise = Console.ReadLine();
+                    choise = choise.ToLower();
+                }
             }
+            Console.WriteLine($"Good bye {name}");
 
-
+            /*
             Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
             Weapon playersWeapon = (Weapon)int.Parse(Console.ReadLine());
             int playersWeaponID = (int)playersWeapon;
@@ -74,6 +86,7 @@
             }
             PrintPlayersData.PlayersData(name, age, games, wins);
             Choise.PlayersChoise();
+            */
         }
     }
 }
