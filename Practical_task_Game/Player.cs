@@ -14,9 +14,12 @@
         {
             Console.WriteLine($"Name: {name} \nAge: {age} \nPlayed games: {games} \nWins: {win}");
         }
-        public static void PlayersDataGame(int games, int win)
+        public static void PlayersData(int games, int win)
         {
-            Console.WriteLine($"Played games: {games} \nWins: {win}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"\nLet's take a look at your score for this session:");
+            Console.ResetColor();
+            Console.WriteLine($"Played games - {games} \nWins - {win}");
         }
     }
 }

@@ -8,60 +8,75 @@
 
         public static int Game()
         {
-            string[] weapons = { "stone", "scissors", "paper" };
+            string[] weapons = { "none", "stone", "scissors", "paper" };
             Random randomN = new Random();
             int winsR = 0;
-            int w = 0;
 
             for (int i = 1; i <= 3; i++)
             {
 
-                int AIWeaponID = randomN.Next(0, weapons.Length);
+                int AIWeaponID = randomN.Next(1, 4);
                 string AIWeapon = weapons[AIWeaponID];
 
-                Console.WriteLine($"\nChose your weapon by number where stone - 0,scissors - 1, paper - 2");
+                Console.WriteLine($"\nChose your weapon by number where stone - 1,scissors - 2, paper - 3");
                 int playersWeaponID = int.Parse(Console.ReadLine());
-                int playersWeapon = playersWeaponID;
-                if (playersWeapon < 0 || playersWeapon > 2)
+                string playersWeapon = weapons[playersWeaponID];
+
+                if (playersWeaponID < 1 || playersWeaponID > 3)
                 {
                     Console.WriteLine("Wrong number");
-                    Console.WriteLine($"Chose your weapon by number where stone - 0,scissors - 1, paper - 2");
+                    Console.WriteLine($"Chose your weapon by number where stone - 1,scissors - 2, paper - 3");
                     playersWeaponID = int.Parse(Console.ReadLine());
-                    playersWeapon = playersWeaponID;
+                    playersWeapon = weapons[playersWeaponID];
                 }
 
-                if (playersWeapon == AIWeaponID)
+                if (playersWeaponID == AIWeaponID)
                 {
 
-                    Console.WriteLine(AIWeapon);
-                    Console.WriteLine("==");
+                    Console.WriteLine($"Your weapon - {playersWeapon}; AI`s weapon - {AIWeapon}");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("Your result is a draw!");
+                    Console.ResetColor();
                     Console.WriteLine("Played rounds:" + i);
                 }
-                else if ((playersWeapon == 1 && AIWeaponID == 2) || (playersWeapon == 2 && AIWeaponID == 3) || (playersWeapon == 3 && AIWeaponID == 1))
+                else if ((playersWeaponID == 1 && AIWeaponID == 2) || (playersWeaponID == 2 && AIWeaponID == 3) || (playersWeaponID == 3 && AIWeaponID == 1))
                 {
                     winsR++;
-                    Console.WriteLine(AIWeapon);
-                    Console.WriteLine("YOU WIN!");
+                    Console.WriteLine($"Your weapon - {playersWeapon}; AI`s weapon - {AIWeapon}");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("You won the round!");
+                    Console.ResetColor();
                     Console.WriteLine("Played rounds:" + i);
 
                 }
                 else
                 {
 
-                    Console.WriteLine(AIWeapon);
-                    Console.WriteLine("Y0U LOSE!");
+                    Console.WriteLine($"Your weapon - {playersWeapon}; AI`s weapon - {AIWeapon}");
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine("You lost the round!");
+                    Console.ResetColor();
                     Console.WriteLine("Played rounds:" + i);
                 }
             }
             if (winsR > 1)
             {
-
-                Console.WriteLine("\nYOU WIN the game!");
+                string[] praiseOptions = { "\nCongratulations, you won the battle!", "\nWOW! You won!", "\nYou won! You're just amazing!" };
+                int messege = randomN.Next(0, praiseOptions.Length);
+                Console.WriteLine("\nYour result...");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("YOU WON!!!" + praiseOptions[messege]);
+                Console.ResetColor();
                 return 1;
             }
             else
             {
-                Console.WriteLine("\nYOU lose the game!");
+                string[] encouragementOptions = { "\nDon't lose faith in your abilities. There will be a chance to win again!", "\nDon't give up, you'll do better next time!", "\nTry again, and you will win!" };
+                int messege = randomN.Next(0, encouragementOptions.Length);
+                Console.WriteLine("\nYour result...");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("YOU LOSE!!!" + encouragementOptions[messege]);
+                Console.ResetColor();
                 return 0;
             }
 
