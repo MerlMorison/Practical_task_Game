@@ -9,17 +9,26 @@
 
         public static void PlayersData(string name, int age, int games, int win)
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"Name: {name} \nAge: {age} \nPlayed games: {games} \nWins: {win}");
-            Console.ResetColor();
+
+            Console.Write($"\n█▄░█ ▄▀█ █▀▄▀█ █▀▀ ▀" +
+                          $"\n█░▀█ █▀█ █░▀░█ ██▄ ▄ {name} " +
+                          $"\n\n▄▀█ █▀▀ █▀▀ ▀" +
+                            $"\n█▀█ █▄█ ██▄ ▄ {age} " +
+                          $"\n\n█▀█ █░░ ▄▀█ █▄█ █▀▀ █▀▄   █▀▀ ▄▀█ █▀▄▀█ █▀▀ █▀ ▀" +
+                            $"\n█▀▀ █▄▄ █▀█ ░█░ ██▄ █▄▀   █▄█ █▀█ █░▀░█ ██▄ ▄█ ▄ {games} " +
+                          $"\n\n█░█░█ █ █▄░█ █▀ ▀" +
+                            $"\n▀▄▀▄▀ █ █░▀█ ▄█ ▄ {win}");
+            Console.WriteLine("\n\n===================================================================================================================");
+
         }
         public static void PlayersData(int games, int win)
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"Played games: {games} \nWins: {win}");
-            Console.ResetColor();
+
+            Console.WriteLine($"\n\n█▀█ █░░ ▄▀█ █▄█ █▀▀ █▀▄   █▀▀ ▄▀█ █▀▄▀█ █▀▀ █▀ ▀" +
+                                $"\n█▀▀ █▄▄ █▀█ ░█░ ██▄ █▄▀   █▄█ █▀█ █░▀░█ ██▄ ▄█ ▄ {games} " +
+                              $"\n\n█░█░█ █ █▄░█ █▀ ▀" +
+                                $"\n▀▄▀▄▀ █ █░▀█ ▄█ ▄ {win}");
+            Console.WriteLine("\n\n===================================================================================================================");
         }
     }
 }

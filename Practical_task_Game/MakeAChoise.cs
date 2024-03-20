@@ -8,13 +8,15 @@
             int games = 0;
             int win = 0;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nDo you want to start? (Yes|No)");
+            Console.WriteLine("\n\r\n█▀▄ █▀█   █▄█ █▀█ █░█   █░█░█ ▄▀█ █▄░█ ▀█▀   ▀█▀ █▀█   █▀ ▀█▀ ▄▀█ █▀█ ▀█▀ ▀█   ▄▀ █▄█ █▀▀ █▀   ░░▄▀   █▄░█ █▀█ ▀▄" +
+                                "\r\n█▄▀ █▄█   ░█░ █▄█ █▄█   ▀▄▀▄▀ █▀█ █░▀█ ░█░   ░█░ █▄█   ▄█ ░█░ █▀█ █▀▄ ░█░ ░▄   ▀▄ ░█░ ██▄ ▄█   ▄▀░░   █░▀█ █▄█ ▄▀" +
+                                "\r\n");
             Console.ResetColor();
             string choise = Console.ReadLine();
             choise = choise.ToLower();
             while (choise != "yes" && choise != "no")
             {
-                Console.WriteLine("Please write yes or no");
+                Console.WriteLine("\nPlease write yes or no\n");
                 choise = Console.ReadLine();
                 choise = choise.ToLower();
             }
@@ -28,7 +30,11 @@
                     win += GameBody.Game();
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nLet's take a look at your score for this session:");
+                    Console.WriteLine($"\n█░░ █▀▀ ▀█▀ ▀ █▀   ▀█▀ ▄▀█ █▄▀ █▀▀   ▄▀█   █░░ █▀█ █▀█ █▄▀   ▄▀█ ▀█▀   █▄█ █▀█ █░█ █▀█   █▀ █▀▀ █▀█ █▀█ █▀▀" +
+                                      $"\n█▄▄ ██▄ ░█░ ░ ▄█   ░█░ █▀█ █░█ ██▄   █▀█   █▄▄ █▄█ █▄█ █░█   █▀█ ░█░   ░█░ █▄█ █▄█ █▀▄   ▄█ █▄▄ █▄█ █▀▄ ██▄" +
+                                      $"\n" +
+                                      $"\n█▀▀ █▀█ █▀█   ▀█▀ █░█ █ █▀   █▀ █▀▀ █▀ █▀ █ █▀█ █▄░█ ▀" +
+                                      $"\n█▀░ █▄█ █▀▄   ░█░ █▀█ █ ▄█   ▄█ ██▄ ▄█ ▄█ █ █▄█ █░▀█ ▄");
                     Console.ResetColor();
 
                     Player.PlayersData(games, win);
@@ -36,13 +42,18 @@
 
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nDo you want to play again? (Yes|No)");
+                    Console.WriteLine("\n\r\n█▀▄ █▀█   █▄█ █▀█ █░█   █░█░█ ▄▀█ █▄░█ ▀█▀   ▀█▀ █▀█   █▀█ █░░ ▄▀█ █▄█   ▄▀█ █▀▀ ▄▀█ █ █▄░█ ▀█   " +
+                                        "\r\n█▄▀ █▄█   ░█░ █▄█ █▄█   ▀▄▀▄▀ █▀█ █░▀█ ░█░   ░█░ █▄█   █▀▀ █▄▄ █▀█ ░█░   █▀█ █▄█ █▀█ █ █░▀█ ░▄   " +
+                                        "\r\n" +
+                                        "\r\n▄▀ █▄█ █▀▀ █▀     ▄▀    █▄ █ █▀█ ▀▄" +
+                                        "\r\n▀▄  █  ██▄ ▄█   ▄▀      █ ▀█ █▄█ ▄▀" +
+                                        "\r\n");
                     Console.ResetColor();
                     choise = Console.ReadLine();
                     choise = choise.ToLower();
                     while (choise != "yes" && choise != "no")
                     {
-                        Console.WriteLine("Please write yes or no");
+                        Console.WriteLine("\nPlease write yes or no\n");
                         choise = Console.ReadLine();
                         choise = choise.ToLower();
                     }
