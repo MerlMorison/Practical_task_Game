@@ -17,27 +17,22 @@
 
                 int AIWeaponID = randomN.Next(1, 4);
 
-
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\nChose your weapon by number where stone - 1,scissors - 2, paper - 3");
+                Console.WriteLine($"\nChoose your weapon by number where stone - 1, scissors - 2, paper - 3");
                 Console.ResetColor();
-                int playersWeaponID = int.Parse(Console.ReadLine());
 
+                string playersWeaponInput = Console.ReadLine();
 
-                if (playersWeaponID < 1 || playersWeaponID > 3)
+                while (string.IsNullOrWhiteSpace(playersWeaponInput) || !int.TryParse(playersWeaponInput, out int playersWeapon) || playersWeapon < 1 || playersWeapon > 3)
                 {
-                    Console.WriteLine("Wrong number");
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nChose your weapon by number where stone - 1,scissors - 2, paper - 3");
-                    Console.ResetColor();
-                    playersWeaponID = int.Parse(Console.ReadLine());
-
+                    Console.WriteLine("\nInvalid input. Please choose your weapon by entering a number between 1 and 3:\n");
+                    playersWeaponInput = Console.ReadLine();
                 }
+                
+                int playersWeaponID = int.Parse(playersWeaponInput);
 
                 if (playersWeaponID == AIWeaponID)
                 {
-
-
                     Pictures.ChoisePlayer(playersWeaponID);
                     Pictures.ChoiseAI(AIWeaponID);
                     Console.ForegroundColor = ConsoleColor.Gray;
